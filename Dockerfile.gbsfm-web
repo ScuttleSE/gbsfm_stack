@@ -8,8 +8,8 @@ RUN apt-get update && \
     mkdir /remaining && \
     mkdir /home/gbsfm && \
     touch /home/gbsfm/listeners.txt && \
-    git clone https://github.com/ScuttleSE/gbsfm_web.git /srv/pydj
-    cd /srv/pydj
+    git clone https://github.com/ScuttleSE/gbsfm_web.git /srv/pydj && \
+    cd /srv/pydj && \
     rm -rf bin include lib pyvenv.cfg && \
     virtualenv ./
 RUN . /srv/pydj/bin/activate && \
