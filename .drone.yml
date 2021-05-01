@@ -10,7 +10,7 @@ platform:
 steps:
 - name: Build gbs.fm Web Dockerimage
   commands:
-  - docker build --no-cache -t registry.hemma.lokal/images/gbsfm-web:latest .
+  - docker build --no-cache -t registry.hemma.lokal/images/gbsfm-web:latest Dockerfile.gbsfm-web
 - name: Push gbs.fm Web Dockerimage
   commands:
   - docker push registry.hemma.lokal/images/gbsfm-web:latest
