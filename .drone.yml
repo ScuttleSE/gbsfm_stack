@@ -1,0 +1,18 @@
+---
+kind: pipeline
+type: exec
+name: default
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: Build gbs.fm Web Dockerimage
+  commands:
+  - docker build --no-cache -t registry.hemma.lokal/images/gbsfm-web:latest .
+- name: Push gbs.fm Web Dockerimage
+  commands:
+  - docker push registry.hemma.lokal/images/gbsfm-web:latest
+node:
+  docker4: 1

@@ -1,0 +1,30 @@
+from python:2.7-stretch
+
+RUN apt-get update && \
+    apt-get -y install nano telnet psmisc jq && \
+    mkdir /srv/pydj && \
+    mkdir /srv/ftpdir && \
+    mkdir /srv/logs && \
+    mkdir /remaining && \
+    mkdir /home/gbsfm && \
+    touch /home/gbsfm/listeners.txt && \
+    git clone https://github.com/ScuttleSE/gbsfm_web.git /srv/pydj
+    cd /srv/pydj
+    rm -rf bin include lib pyvenv.cfg && \
+    virtualenv ./
+RUN . /srv/pydj/bin/activate && \
+    pip install alabaster==0.7.10 Babel==2.4.0 certifi==2017.4.17 chardet==3.0.4 Django==1.11.13 \
+        django-markdown-deux==1.0.5 docutils==0.13.1 idna==2.5 imagesize==0.7.1 \
+        Jinja2==2.9.6 markdown2==2.3.4 MarkupSafe==1.0 mutagen==1.38 mysqlclient==1.3.12 \
+        nose==1.3.7 plex==2.0.0.dev0 pyftpdlib==1.5.2 Pygments==2.2.0 PyMySQL==0.7.11 pytz==2017.3 \
+        requests==2.18.1 six==1.10.0 snowballstemmer==1.2.1 Sphinx==1.6.3 sphinxcontrib-websupport==1.0.1 \
+        typing==3.6.1 urllib3==1.21.1 uWSGI==2.0.17 zope.interface==4.4.2
+COPY scripts/entrypoint.sh /home/gbsfm/entrypoint.sh
+COPY scripts/listeners.sh /home/gbsfm/listeners.sh
+COPY scripts/remaining.py /home/gbsfm/remaining.py
+COPY scripts/restartstuff.sh /home/gbsfm/restartstuff.sh
+COPY scripts/skipsong.sh /home/gbsfm/skipsong.sh
+COPY scripts/metadataupdater.sh /home/gbsfm/metadataupdater.sh
+COPY other_settings.py /srv/pydj/other_settings.py
+
+ENTRYPOINT ["/home/gbsfm/entrypoint.sh"]
