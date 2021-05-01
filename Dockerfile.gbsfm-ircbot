@@ -1,0 +1,24 @@
+FROM alpine:latest
+
+RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories && \
+    apk --no-cache --no-progress upgrade && \
+    apk --no-cache --no-progress add bash perl git openssh-client supercronic build-base wget perl-app-cpanminus perl-dev mariadb-dev perl-lwp-protocol-https curl && \
+    mkdir /socks-irc && \
+    mkdir /root/.ssh && \
+    ssh-keyscan -p 2222 git.hemma.lokal > /root/.ssh/known_hosts
+
+COPY ssh/id_rsa.ircbot /root/.ssh/id_rsa
+COPY ssh/id_rsa.ircbot.pub /root/.ssh/id_rsa.pub
+
+RUN chmod og-rw /root/.ssh/id_rsa && \
+    git clone ssh://git@git.hemma.lokal:2222/scuttle/gbsfm_ircbot.git /socks-irc && \
+    git config --global user.email "ircbot@example.com" && \
+    git config --global user.name "IRC Bot" && \
+    cpanm POE::Component::IRC && \
+    cpanm LWP && \
+    cpanm DBI && \
+    cpanm DBD::mysql
+COPY scripts/ircbot_crontab /root/crontab
+COPY scripts/ircbot_entrypoint.sh /root/entrypoint.sh
+
+ENTRYPOINT ["/root/entrypoint.sh"]

@@ -20,5 +20,11 @@ steps:
 - name: Push gbs.fm FTP Dockerimage
   commands:
   - docker push registry.hemma.lokal/images/gbsfm-ftp:latest
+- name: Build IRC-bot Dockerimage
+  commands:
+  - docker build --no-cache -t registry.hemma.lokal/images/gbsfm-ircbot:latest -f Dockerfile.gbsfm-ircbot .
+- name: Push IRC-bot Dockerimage
+  commands:
+  - docker push registry.hemma.lokal/images/gbsfm-ircbot:latest
 node:
   docker4: 1

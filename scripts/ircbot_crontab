@@ -1,0 +1,3 @@
+# Run every three hours
+1 */3 * * * m=$(cd /socks-irc && git add . && git commit -m "socks-docker" || true && git push); curl -kfsS -X POST --data-raw "$m" "https://hc.hemma.lokal/ping/3c70574d-f31c-4674-9146-f11767626c8e$([ $? -ne 0 ] && echo -n /fail)"
+
