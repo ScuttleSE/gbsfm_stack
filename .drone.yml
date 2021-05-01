@@ -14,5 +14,11 @@ steps:
 - name: Push gbs.fm Web Dockerimage
   commands:
   - docker push registry.hemma.lokal/images/gbsfm-web:latest
+- name: Build gbs.fm FTP Dockerimage
+  commands:
+  - docker build --no-cache -t registry.hemma.lokal/images/gbsfm-ftp:latest -f Dockerfile.gbsfm-web .
+- name: Push gbs.fm FTP Dockerimage
+  commands:
+  - docker push registry.hemma.lokal/images/gbsfm-ftp:latest
 node:
   docker4: 1
