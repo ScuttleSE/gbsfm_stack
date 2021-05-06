@@ -5,22 +5,22 @@ do
 	curl -G --data "mount=/96" \
 	        --data "mode=updinfo" \
 	        --data-urlencode "song=$TRACKTAG" \
-	http://admin:adminpassword@192.168.0.154:8888/admin/metadata
+	http://username:password@192.168.0.154:8888/admin/metadata
 	curl -G --data "mount=/128" \
 	        --data "mode=updinfo" \
 	        --data-urlencode "song=$TRACKTAG" \
-	http://admin:adminpassword@192.168.0.154:8888/admin/metadata
+	http://username:password@192.168.0.154:8888/admin/metadata
 	curl -G --data "mount=/192" \
 	        --data "mode=updinfo" \
 	        --data-urlencode "song=$TRACKTAG" \
-	http://admin:adminpassword@192.168.0.154:8888/admin/metadata
+	http://username:password@192.168.0.154:8888/admin/metadata
 	curl -G --data "mount=/256" \
 	        --data "mode=updinfo" \
 	        --data-urlencode "song=$TRACKTAG" \
-	http://admin:adminpassword@192.168.0.154:8888/admin/metadata
+	http://username:password@192.168.0.154:8888/admin/metadata
 	curl -G --data "mount=/320" \
 	        --data "mode=updinfo" \
 	        --data-urlencode "song=$TRACKTAG" \
-	http://admin:adminpassword@192.168.0.154:8888/admin/metadata
+	http://username:password@192.168.0.154:8888/admin/metadata
 	sleep 10
 done
