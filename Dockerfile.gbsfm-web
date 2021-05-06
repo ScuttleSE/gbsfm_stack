@@ -10,8 +10,8 @@ ARG DRONE_SECRET_KEY
 
 COPY replacepasswords.sh /root/replacepasswords.sh
 
-RUN sh replacepasswords.sh && \
-    cat other_settings.py
+RUN sh /root/replacepasswords.sh && \
+    cat /srv/pydj/other_settings.py
 
 
 
