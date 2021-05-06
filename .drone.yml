@@ -23,13 +23,13 @@ steps:
 
 
 
-- name: Insert passwords
-  commands:
-  - git clone https://git.hemma.lokal/scuttle/secrets.git
-  - cp secrets/other_settings.py other_settings.py
-  - sed -i "s/username:password/`cat secrets/listeners.sh.secret`/g" scripts/listeners.sh
-  - sed -i "s/username:password/`cat secrets/metadataupdater.sh.secret`/g" scripts/metadataupdater.sh
-  - sed -i "s/userid=XXX&key=YYY/`cat secrets/metadataupdater.sh.secret2`/g" scripts/metadataupdater.sh
+#- name: Insert passwords
+#  commands:
+#  - git clone https://git.hemma.lokal/scuttle/secrets.git
+#  - cp secrets/other_settings.py other_settings.py
+#  - sed -i "s/username:password/`cat secrets/listeners.sh.secret`/g" scripts/listeners.sh
+#  - sed -i "s/username:password/`cat secrets/metadataupdater.sh.secret`/g" scripts/metadataupdater.sh
+#  - sed -i "s/userid=XXX&key=YYY/`cat secrets/metadataupdater.sh.secret2`/g" scripts/metadataupdater.sh
 #- name: Build gbs.fm Web Dockerimage
 #  commands:
 #  - docker build --no-cache -t registry.hemma.lokal/images/gbsfm-web:latest -f Dockerfile.gbsfm-web .
