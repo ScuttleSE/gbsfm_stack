@@ -11,9 +11,11 @@ steps:
 - name: Insert passwords
   commands:
   - git clone https://git.hemma.lokal/scuttle/secrets.git
-  - cat other_settings.py
   - cp secrets/other_settings.py other_settings.py
-  - cat other_settings.py
+  - $REALSECRET=`cat secrets/listeners.sh.secret`
+  - cat scripts/listeners.sh
+  - sed -i "s/username:password/$REALSECRET/g" scripts/listeners.sh
+  - cat scripts/listeners.sh
   #  - sh replacepasswords.sh
 #  - cat other_settings.py
 #- name: Build gbs.fm Web Dockerimage
@@ -36,3 +38,6 @@ steps:
 #  - docker push registry.hemma.lokal/images/gbsfm-ircbot:latest
 node:
   docker4: 1
+
+
+sed -i 's/username:password/$REALSECRET/g' scripts/listeners.sh
