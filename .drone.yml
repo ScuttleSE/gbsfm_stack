@@ -15,7 +15,7 @@ steps:
   - sed -i "s/username:password/`cat secrets/listeners.sh.secret`/g" scripts/listeners.sh
   - sed -i "s/username:password/`cat secrets/metadataupdater.sh.secret`/g" scripts/metadataupdater.sh
   - cat scripts/metadataupdater.sh
-  - sed -i "s/'userid=XXX&key=YYY'/`cat secrets/metadataupdater.sh.secret2`/g" scripts/metadataupdater.sh
+  - sed -i "s/userid=XXX&key=YYY/`cat secrets/metadataupdater.sh.secret2`/g" scripts/metadataupdater.sh
   - cat scripts/metadataupdater.sh
 #- name: Build gbs.fm Web Dockerimage
 #  commands:
