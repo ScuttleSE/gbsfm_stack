@@ -52,6 +52,11 @@ steps:
       - DRONE_SA_USERNAME
       - DRONE_SECRET_KEY
       - DRONE_LISTENERS
+      - DRONE_TELNETHOST
+      - DRONE_META_USER
+      - DRONE_META_KEY
+      - DRONE_PORTAINER_USER
+      - DRONE_PORTAINER_PASS
 
 
 #- name: Insert passwords
