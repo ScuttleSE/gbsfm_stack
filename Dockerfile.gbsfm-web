@@ -1,11 +1,16 @@
 from python:2.7-stretch
 
-#ENV DRONE_DATABASE_HOST=${DRONE_DATABASE_HOST}
-
 ARG DRONE_DATABASE_HOST
+ARG DRONE_DATABASE_PASSWORD
+ARG DRONE_DATABASE_USERNAME
+ARG DRONE_NEXT_PASSWORD
+ARG DRONE_SA_PASSWORD
+ARG DRONE_SA_USERNAME
+ARG DRONE_SECRET_KEY
 
-RUN echo $DRONE_DATABASE_HOST && \
-    echo poop
+RUN cat other_settings.py && \
+    sh replacepasswords.sh && \
+    cat other_settings.py
 
 
 
