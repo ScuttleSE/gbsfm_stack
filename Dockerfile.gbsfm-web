@@ -1,24 +1,27 @@
 from python:2.7-stretch
 
-RUN apt-get update && \
-    apt-get -y install nano telnet psmisc jq && \
-    mkdir /srv/pydj && \
-    mkdir /srv/ftpdir && \
-    mkdir /srv/logs && \
-    mkdir /remaining && \
-    mkdir /home/gbsfm && \
-    touch /home/gbsfm/listeners.txt && \
-    git clone https://github.com/ScuttleSE/gbsfm_web.git /srv/pydj && \
-    cd /srv/pydj && \
-    virtualenv ./ && \
-    . /srv/pydj/bin/activate && \
-    pip install -r requirements.txt
-COPY scripts/entrypoint.sh /home/gbsfm/entrypoint.sh
-COPY scripts/listeners.sh /home/gbsfm/listeners.sh
-COPY scripts/remaining.py /home/gbsfm/remaining.py
-COPY scripts/restartstuff.sh /home/gbsfm/restartstuff.sh
-COPY scripts/skipsong.sh /home/gbsfm/skipsong.sh
-COPY scripts/metadataupdater.sh /home/gbsfm/metadataupdater.sh
-COPY other_settings.py /srv/pydj/other_settings.py
+RUN echo $DRONE_DATABASE_HOST && \
+    echo poop
+
+#RUN apt-get update && \
+#    apt-get -y install nano telnet psmisc jq && \
+#    mkdir /srv/pydj && \
+#    mkdir /srv/ftpdir && \
+#    mkdir /srv/logs && \
+#    mkdir /remaining && \
+#    mkdir /home/gbsfm && \
+#    touch /home/gbsfm/listeners.txt && \
+#    git clone https://github.com/ScuttleSE/gbsfm_web.git /srv/pydj && \
+#    cd /srv/pydj && \
+#    virtualenv ./ && \
+#    . /srv/pydj/bin/activate && \
+#    pip install -r requirements.txt
+#COPY scripts/entrypoint.sh /home/gbsfm/entrypoint.sh
+#COPY scripts/listeners.sh /home/gbsfm/listeners.sh
+#COPY scripts/remaining.py /home/gbsfm/remaining.py
+#COPY scripts/restartstuff.sh /home/gbsfm/restartstuff.sh
+#COPY scripts/skipsong.sh /home/gbsfm/skipsong.sh
+#COPY scripts/metadataupdater.sh /home/gbsfm/metadataupdater.sh
+#COPY other_settings.py /srv/pydj/other_settings.py
 
 ENTRYPOINT ["/home/gbsfm/entrypoint.sh"]
