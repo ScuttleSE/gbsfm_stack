@@ -14,11 +14,6 @@ steps:
   - sh replacepasswords.sh
   - cat other_settings.py
   environment:
-    USERNAME:
-      from_secret: docker_username
-    PASSWORD:
-      from_secret: docker_password
-
     DRONE_SA_USERNAME:
       from_secret: DRONE_SA_USERNAME
     DRONE_SA_PASSWORD:
