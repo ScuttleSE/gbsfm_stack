@@ -2,8 +2,13 @@ from python:2.7-stretch
 
 ENV DRONE_DATABASE_HOST=${DRONE_DATABASE_HOST}
 
+ARG DRONE_DATABASE_HOST
+
 RUN echo $DRONE_DATABASE_HOST && \
     echo poop
+
+
+
 
 #RUN apt-get update && \
 #    apt-get -y install nano telnet psmisc jq && \
