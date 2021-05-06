@@ -19,7 +19,8 @@ steps:
     tags: latest
     registry: registry.hemma.lokal
     dockerfile: Dockerfile.gbsfm-web
-
+    build_args_from_env:
+      - DRONE_DATABASE_HOST
 
 
 
