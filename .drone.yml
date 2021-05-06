@@ -48,5 +48,5 @@ steps:
 #- name: Push IRC-bot Dockerimage
 #  commands:
 #  - docker push registry.hemma.lokal/images/gbsfm-ircbot:latest
-node:
-  docker4: 1
+#node:
+#  docker4: 1
