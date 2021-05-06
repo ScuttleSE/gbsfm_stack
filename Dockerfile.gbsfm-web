@@ -10,7 +10,8 @@ ARG DRONE_SECRET_KEY
 
 COPY replacepasswords.sh /root/replacepasswords.sh
 
-RUN sh /root/replacepasswords.sh && \
+RUN mkdir /srv/pydj && \
+    sh /root/replacepasswords.sh && \
     cat /srv/pydj/other_settings.py
 
 
@@ -18,7 +19,7 @@ RUN sh /root/replacepasswords.sh && \
 
 #RUN apt-get update && \
 #    apt-get -y install nano telnet psmisc jq && \
-#    mkdir /srv/pydj && \
+
 #    mkdir /srv/ftpdir && \
 #    mkdir /srv/logs && \
 #    mkdir /remaining && \
