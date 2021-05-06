@@ -1,5 +1,7 @@
 from python:2.7-stretch
 
+ENV DRONE_DATABASE_HOST=${DRONE_DATABASE_HOST}
+
 RUN echo $DRONE_DATABASE_HOST && \
     echo poop
 
