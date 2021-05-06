@@ -11,7 +11,9 @@ steps:
 - name: Insert passwords
   commands:
   - git clone https://git.hemma.lokal/scuttle/secrets.git
+  - cat other_settings.py
   - cp secrets/other_settings.py other_settings.py
+  - cat other_settings.py
   #  - sh replacepasswords.sh
 #  - cat other_settings.py
 #- name: Build gbs.fm Web Dockerimage
