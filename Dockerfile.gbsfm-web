@@ -19,7 +19,15 @@ RUN mkdir /srv/pydj && \
     mkdir /srv/logs && \
     mkdir /remaining && \
     mkdir /home/gbsfm && \
-    touch /home/gbsfm/listeners.txt
+    touch /home/gbsfm/listeners.txt && \
+    apt-get update && \
+    apt-get -y install nano telnet psmisc jq && \
+    git clone https://github.com/ScuttleSE/gbsfm_web.git /srv/pydj && \
+    cd /srv/pydj && \
+    virtualenv ./ && \
+    . /srv/pydj/bin/activate && \
+    pip install -r requirements.txt
+
 COPY replacepasswords.sh /root/replacepasswords.sh
 COPY scripts/entrypoint.sh /home/gbsfm/entrypoint.sh
 COPY scripts/listeners.sh /home/gbsfm/listeners.sh
@@ -31,18 +39,5 @@ COPY scripts/metadataupdater.sh /home/gbsfm/metadataupdater.sh
 RUN sh /root/replacepasswords.sh && \
     rm /root/replacepasswords.sh
 
+ENTRYPOINT ["/home/gbsfm/entrypoint.sh"]
 
-
-
-
-#RUN apt-get update && \
-#    apt-get -y install nano telnet psmisc jq && \
-
-#    git clone https://github.com/ScuttleSE/gbsfm_web.git /srv/pydj && \
-#    cd /srv/pydj && \
-#    virtualenv ./ && \
-#    . /srv/pydj/bin/activate && \
-#    pip install -r requirements.txt
-
-#ENTRYPOINT ["/home/gbsfm/entrypoint.sh"]
-CMD tail -f /dev/null
