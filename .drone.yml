@@ -38,6 +38,3 @@ steps:
 #  - docker push registry.hemma.lokal/images/gbsfm-ircbot:latest
 node:
   docker4: 1
-
-
-sed -i 's/username:password/$REALSECRET/g' scripts/listeners.sh
