@@ -25,8 +25,7 @@ COPY scripts/metadataupdater.sh /home/gbsfm/metadataupdater.sh
 
 RUN sh /root/replacepasswords.sh && \
     rm /root/replacepasswords.sh && \
-    echo $DRONE_SECRET_KEY
-    #cat /srv/pydj/other_settings.py
+
 
 
 
