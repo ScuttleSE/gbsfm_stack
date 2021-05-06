@@ -13,7 +13,7 @@ sed -i "s/username:password/$DRONE_LISTENERS/g" /home/gbsfm/listeners.sh
 sed -i "s/(host=''/(host='$DRONE_DATABASE_HOST'/g" /home/gbsfm/remaining.py
 sed -i "s/user=''/user='$DRONE_DATABASE_USERNAME'/g" /home/gbsfm/remaining.py
 sed -i "s/password=''/password='$DRONE_DATABASE_PASSWORD'/g" /home/gbsfm/remaining.py
-sed -i "s/telnethost = ''/telnethost='$DRONE_TELNETHOST'/g" /home/gbsfm/remaining.py
+sed -i "s/telnethost=''/telnethost='$DRONE_TELNETHOST'/g" /home/gbsfm/remaining.py
 
 sed -i "s/userid=XXX/userid=$DRONE_META_USER/g" /home/gbsfm/metadataupdater.sh
 sed -i "s/key=YYY/key=$DRONE_META_KEY/g" /home/gbsfm/metadataupdater.sh
