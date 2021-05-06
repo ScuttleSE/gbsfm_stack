@@ -13,7 +13,7 @@ RUN mkdir /srv/pydj && \
     mkdir /srv/logs && \
     mkdir /remaining && \
     mkdir /home/gbsfm && \
-    touch /home/gbsfm/listeners.txt
+    touch /home/gbsfm/listeners.txt && \
 COPY replacepasswords.sh /root/replacepasswords.sh
 COPY scripts/entrypoint.sh /home/gbsfm/entrypoint.sh
 COPY scripts/listeners.sh /home/gbsfm/listeners.sh
@@ -39,4 +39,5 @@ RUN sh /root/replacepasswords.sh && \
 #    . /srv/pydj/bin/activate && \
 #    pip install -r requirements.txt
 
-ENTRYPOINT ["/home/gbsfm/entrypoint.sh"]
+#ENTRYPOINT ["/home/gbsfm/entrypoint.sh"]
+CMD tail -f /dev/null
