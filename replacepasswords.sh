@@ -8,4 +8,4 @@ echo "SA_PASSWORD = '$DRONE_SA_PASSWORD'" >> /srv/pydj/other_settings.py
 echo "SA_USERNAME = '$DRONE_SA_USERNAME'" >> /srv/pydj/other_settings.py
 echo "SECRET_KEY = '$DRONE_SECRET_KEY'" >> /srv/pydj/other_settings.py
 
-sed -i !"s/username:password/$DRONE_LISTENERS/g" /home/gbsfm/listeners.sh
+sed -i "s/username:password/$DRONE_LISTENERS/g" /home/gbsfm/listeners.sh
