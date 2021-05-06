@@ -1,11 +1,9 @@
 #!/bin/bash
 
-USERNAME=admin
-PASSWORD=Aladdin5
+USERNAME=xxx
+PASSWORD=yyy
 HOST=https://portainer.hemma.lokal
-#SERVICE_NAME=botstack_socks-linkbot
 SERVICE_NAME=botstack_shoes-docker
-#IMAGE_NAME=gitlab.hemma.lokal:5005/scuttle/socks-linkbot:latest
 IMAGE_NAME=gitlab.hemma.lokal:5005/scuttle/shoes-docker:latest
 SERVICE_NAME=$1
 IMAGE_NAME=$2
