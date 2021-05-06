@@ -1,12 +1,12 @@
 #!/srv/pydj/bin/python
-import pymysql.cursors  
+import pymysql.cursors
 import telnetlib
 import time
 
-host = '192.168.0.154' 
-cuefile='/remaining/ices2.cue' 
+telnethost = ''
+cuefile='/remaining/ices2.cue'
 
-connection = pymysql.connect(host='192.168.0.111', user='gbsfm', password='gbsfm', db='gbsfm', charset='utf8', cursorclass=pymysql.cursors.DictCursor, autocommit=True)
+connection = pymysql.connect(host='', user='', password='', db='gbsfm', charset='utf8', cursorclass=pymysql.cursors.DictCursor, autocommit=True)
 
 while True:
     query = connection.cursor()
@@ -16,7 +16,7 @@ while True:
 			    ON playlist_playlistentry.song_id = playlist_song.id \
 			    WHERE playlist_playlistentry.playing = 1")
     queryresult = query.fetchone()
-    tn = telnetlib.Telnet(host, 1234)
+    tn = telnetlib.Telnet(telnethost, 1234)
     tn.write(b'96.remaining\n')
     tn.write(b'quit\n')
     telnetresult = tn.read_all().decode('ascii')
