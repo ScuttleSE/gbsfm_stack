@@ -1,5 +1,13 @@
 from python:2.7-stretch
 
+ARG DRONE_DATABASE_HOST
+ARG DRONE_DATABASE_PASSWORD
+ARG DRONE_DATABASE_USERNAME
+ARG DRONE_NEXT_PASSWORD
+ARG DRONE_SA_PASSWORD
+ARG DRONE_SA_USERNAME
+ARG DRONE_SECRET_KEY
+
 RUN apt-get update && \
     apt-get -y install nano telnet psmisc jq && \
     mkdir /srv/pydj && \
@@ -14,6 +22,9 @@ RUN apt-get update && \
     . /srv/pydj/bin/activate && \
     pip install -r requirements.txt
 COPY scripts/ftp-entrypoint.sh /home/gbsfm/ftp-entrypoint.sh
-COPY other_settings.py /srv/pydj/other_settings.py
+COPY replacepasswords-ftp.sh /root/replacepasswords.sh
+
+RUN sh /root/replacepasswords.sh && \
+    rm /root/replacepasswords.sh
 
 ENTRYPOINT ["/home/gbsfm/ftp-entrypoint.sh"]
