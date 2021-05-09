@@ -96,5 +96,6 @@ steps:
     tags: latest
     registry: registry.hemma.lokal
     dockerfile: Dockerfile.gbsfm-ircbot
+    custom_dns: 192.168.0.150
     build_args_from_env:
       - DRONE_IRC_GIT
