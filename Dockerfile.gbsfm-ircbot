@@ -14,7 +14,7 @@ RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repos
     cpanm POE::Component::IRC && \
     cpanm LWP && \
     cpanm DBI && \
-    cpanm DBD::mysql && \
+    cpanm DBD::mysql
 COPY scripts/ircbot_crontab /root/crontab
 COPY scripts/ircbot_entrypoint.sh /root/entrypoint.sh
 RUN  sed -i "s/gituser:gitpassword/$DRONE_IRC_GIT/g" /root/crontab
