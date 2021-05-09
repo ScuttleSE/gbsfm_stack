@@ -86,31 +86,15 @@ steps:
       - DRONE_SA_PASSWORD
       - DRONE_SA_USERNAME
       - DRONE_SECRET_KEY
-
-#- name: Insert passwords
-#  commands:
-#  - git clone https://git.hemma.lokal/scuttle/secrets.git
-#  - cp secrets/other_settings.py other_settings.py
-#  - sed -i "s/username:password/`cat secrets/listeners.sh.secret`/g" scripts/listeners.sh
-#  - sed -i "s/username:password/`cat secrets/metadataupdater.sh.secret`/g" scripts/metadataupdater.sh
-#  - sed -i "s/userid=XXX&key=YYY/`cat secrets/metadataupdater.sh.secret2`/g" scripts/metadataupdater.sh
-#- name: Build gbs.fm Web Dockerimage
-#  commands:
-#  - docker build --no-cache -t registry.hemma.lokal/images/gbsfm-web:latest -f Dockerfile.gbsfm-web .
-#- name: Push gbs.fm Web Dockerimage
-#  commands:
-#  - docker push registry.hemma.lokal/images/gbsfm-web:latest
-#- name: Build gbs.fm FTP Dockerimage
-#  commands:
-#  - docker build --no-cache -t registry.hemma.lokal/images/gbsfm-ftp:latest -f Dockerfile.gbsfm-web .
-#- name: Push gbs.fm FTP Dockerimage
-#  commands:
-#  - docker push registry.hemma.lokal/images/gbsfm-ftp:latest
-#- name: Build IRC-bot Dockerimage
-#  commands:
-#  - docker build --no-cache -t registry.hemma.lokal/images/gbsfm-ircbot:latest -f Dockerfile.gbsfm-ircbot .
-#- name: Push IRC-bot Dockerimage
-#  commands:
-#  - docker push registry.hemma.lokal/images/gbsfm-ircbot:latest
-#node:
-#  docker4: 1
+- name: Build and push docker image for GBS.fm IRC Bot
+  image: plugins/docker
+  environment:
+    DRONE_IRC_GIT:
+      from_secret: DRONE_IRC_GIT
+  settings:
+    repo: registry.hemma.lokal/images/gbsfm-irc
+    tags: latest
+    registry: registry.hemma.lokal
+    dockerfile: Dockerfile.gbsfm-ircbot
+    build_args_from_env:
+      - DRONE_IRC_GIT
