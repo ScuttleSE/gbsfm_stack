@@ -36,6 +36,8 @@ steps:
       from_secret: DRONE_PORTAINER_USER
     DRONE_PORTAINER_PASS:
       from_secret: DRONE_PORTAINER_PASS
+    DRONE_JOBKEY:
+      from_secret: DRONE_JOBKEY
   settings:
     repo: registry.hemma.lokal/images/gbsfm-web
     tags: latest
