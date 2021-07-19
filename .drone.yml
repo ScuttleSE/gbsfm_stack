@@ -57,6 +57,7 @@ steps:
       - DRONE_META_KEY
       - DRONE_PORTAINER_USER
       - DRONE_PORTAINER_PASS
+      - DRONE_JOBKEY
 - name: Build and push docker image for GBS.fm FTP
   image: plugins/docker
   environment:
