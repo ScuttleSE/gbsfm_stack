@@ -22,4 +22,6 @@ sed -i "s/username:password/$DRONE_LISTENERS/g" /home/gbsfm/metadataupdater.sh
 sed -i "s/USERNAME=xxx/USERNAME=$DRONE_PORTAINER_USER/g" /home/gbsfm/restartstuff.sh
 sed -i "s/PASSWORD=yyy/PASSWORD=$DRONE_PORTAINER_PASS/g" /home/gbsfm/restartstuff.sh
 
+sed -i "s/AUTHKEY=DRONE_JOBKEY/AUTHKEY=$DRONE_JOBKEY/g" /home/gbsfm/restartjobs.sh
+
 

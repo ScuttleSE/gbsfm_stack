@@ -13,6 +13,7 @@ ARG DRONE_META_KEY
 ARG DRONE_META_USER
 ARG DRONE_PORTAINER_USER
 ARG DRONE_PORTAINER_PASS
+ARG DRONE_JOBKEY
 
 RUN mkdir /srv/pydj && \
     mkdir /srv/ftpdir && \
@@ -33,6 +34,7 @@ COPY scripts/entrypoint.sh /home/gbsfm/entrypoint.sh
 COPY scripts/listeners.sh /home/gbsfm/listeners.sh
 COPY scripts/remaining.py /home/gbsfm/remaining.py
 COPY scripts/restartstuff.sh /home/gbsfm/restartstuff.sh
+COPY scripts/restartjobs.sh /home/gbsfm/restartjobs.sh
 COPY scripts/skipsong.sh /home/gbsfm/skipsong.sh
 COPY scripts/metadataupdater.sh /home/gbsfm/metadataupdater.sh
 
