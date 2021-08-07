@@ -36,8 +36,8 @@ steps:
       from_secret: DRONE_PORTAINER_USER
     DRONE_PORTAINER_PASS:
       from_secret: DRONE_PORTAINER_PASS
-    DRONE_JOBKEY:
-      from_secret: DRONE_JOBKEY
+    DRONE_CI:
+      from_secret: DRONE_CI
   settings:
     repo: registry.hemma.lokal/images/gbsfm-web
     tags: latest
@@ -57,7 +57,7 @@ steps:
       - DRONE_META_KEY
       - DRONE_PORTAINER_USER
       - DRONE_PORTAINER_PASS
-      - DRONE_JOBKEY
+      - DRONE_CI
 - name: Build and push docker image for GBS.fm FTP
   image: plugins/docker
   environment:
