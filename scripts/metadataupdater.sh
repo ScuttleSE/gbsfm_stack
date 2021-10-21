@@ -1,7 +1,7 @@
 #!/bin/sh
 while true
 do
-	TRACKTAG=`curl -s "https://gbs.fm/api/pltitle2?userid=XXX&key=YYY"`
+	TRACKTAG=`curl -k -s "https://gbs.fm/api/pltitle2?userid=XXX&key=YYY"`
 	curl -G --data "mount=/96" \
 	        --data "mode=updinfo" \
 	        --data-urlencode "song=$TRACKTAG" \
