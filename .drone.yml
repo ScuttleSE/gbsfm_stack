@@ -88,16 +88,16 @@ steps:
       - DRONE_SA_PASSWORD
       - DRONE_SA_USERNAME
       - DRONE_SECRET_KEY
-- name: Build and push docker image for GBS.fm IRC Bot
-  image: plugins/docker
-  environment:
-    DRONE_IRC_GIT:
-      from_secret: DRONE_IRC_GIT
-  settings:
-    repo: registry.hemma.lokal/images/gbsfm-irc
-    tags: latest
-    registry: registry.hemma.lokal
-    dockerfile: Dockerfile.gbsfm-ircbot
-    custom_dns: 192.168.0.150
-    build_args_from_env:
-      - DRONE_IRC_GIT
+#- name: Build and push docker image for GBS.fm IRC Bot
+#  image: plugins/docker
+#  environment:
+#    DRONE_IRC_GIT:
+#      from_secret: DRONE_IRC_GIT
+#  settings:
+#    repo: registry.hemma.lokal/images/gbsfm-irc
+#    tags: latest
+#    registry: registry.hemma.lokal
+#    dockerfile: Dockerfile.gbsfm-ircbot
+#    custom_dns: 192.168.0.150
+#    build_args_from_env:
+#      - DRONE_IRC_GIT
