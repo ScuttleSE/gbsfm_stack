@@ -23,7 +23,7 @@ RUN mkdir /srv/pydj && \
     touch /home/gbsfm/listeners.txt && \
     apt-get update && \
     apt-get -y install nano telnet psmisc jq && \
-    git clone https://github.com/ScuttleSE/gbsfm_web.git /srv/pydj
+    git clone https://github.com/ScuttleSE/gbsfm_web.git /srv/pydj && \
     cd /srv/pydj && \
     git checkout python3 && \
     cp image/web/requirements.txt . && \
