@@ -29,11 +29,12 @@ RUN mkdir /srv/pydj && \
     pip install --upgrade pip && \
     cp image/web/requirements.txt .  && \
     pip install -r requirements.txt
+#pip install django-markdown-deux
 #    virtualenv ./ && \
 #    . /srv/pydj/bin/activate && \
 #    pip install -r requirements.txt
 
-COPY replacepasswords.sh /root/replacepasswords.sh
+COPY replacepasswords3.sh /root/replacepasswords.sh
 COPY scripts/entrypoint.sh /home/gbsfm/entrypoint.sh
 COPY scripts/listeners.sh /home/gbsfm/listeners.sh
 COPY scripts/remaining.py /home/gbsfm/remaining.py
