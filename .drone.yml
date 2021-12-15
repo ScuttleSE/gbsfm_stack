@@ -7,57 +7,57 @@ platform:
   arch: amd64
 
 steps:
-- name: Build and push docker image for GBS.fm Web
-  image: plugins/docker
-  environment:
-    DRONE_DATABASE_HOST:
-      from_secret: DRONE_DATABASE_HOST
-    DRONE_DATABASE_PASSWORD:
-      from_secret: DRONE_DATABASE_PASSWORD
-    DRONE_DATABASE_USERNAME:
-      from_secret: DRONE_DATABASE_USERNAME
-    DRONE_NEXT_PASSWORD:
-      from_secret: DRONE_NEXT_PASSWORD
-    DRONE_SA_PASSWORD:
-      from_secret: DRONE_SA_PASSWORD
-    DRONE_SA_USERNAME:
-      from_secret: DRONE_SA_USERNAME
-    DRONE_SECRET_KEY:
-      from_secret: DRONE_SECRET_KEY
-    DRONE_LISTENERS:
-      from_secret: DRONE_LISTENERS
-    DRONE_TELNETHOST:
-      from_secret: DRONE_TELNETHOST
-    DRONE_META_USER:
-      from_secret: DRONE_META_USER
-    DRONE_META_KEY:
-      from_secret: DRONE_META_KEY
-    DRONE_PORTAINER_USER:
-      from_secret: DRONE_PORTAINER_USER
-    DRONE_PORTAINER_PASS:
-      from_secret: DRONE_PORTAINER_PASS
-    DRONE_CI:
-      from_secret: DRONE_CI
-  settings:
-    repo: registry.hemma.lokal/images/gbsfm-web
-    tags: latest
-    registry: registry.hemma.lokal
-    dockerfile: Dockerfile.gbsfm-web
-    build_args_from_env:
-      - DRONE_DATABASE_HOST
-      - DRONE_DATABASE_PASSWORD
-      - DRONE_DATABASE_USERNAME
-      - DRONE_NEXT_PASSWORD
-      - DRONE_SA_PASSWORD
-      - DRONE_SA_USERNAME
-      - DRONE_SECRET_KEY
-      - DRONE_LISTENERS
-      - DRONE_TELNETHOST
-      - DRONE_META_USER
-      - DRONE_META_KEY
-      - DRONE_PORTAINER_USER
-      - DRONE_PORTAINER_PASS
-      - DRONE_CI
+#- name: Build and push docker image for GBS.fm Web
+#  image: plugins/docker
+#  environment:
+#    DRONE_DATABASE_HOST:
+#      from_secret: DRONE_DATABASE_HOST
+#    DRONE_DATABASE_PASSWORD:
+#      from_secret: DRONE_DATABASE_PASSWORD
+#    DRONE_DATABASE_USERNAME:
+#      from_secret: DRONE_DATABASE_USERNAME
+#    DRONE_NEXT_PASSWORD:
+#      from_secret: DRONE_NEXT_PASSWORD
+#    DRONE_SA_PASSWORD:
+#      from_secret: DRONE_SA_PASSWORD
+#    DRONE_SA_USERNAME:
+#      from_secret: DRONE_SA_USERNAME
+#    DRONE_SECRET_KEY:
+#      from_secret: DRONE_SECRET_KEY
+#    DRONE_LISTENERS:
+#      from_secret: DRONE_LISTENERS
+#    DRONE_TELNETHOST:
+#      from_secret: DRONE_TELNETHOST
+#    DRONE_META_USER:
+#      from_secret: DRONE_META_USER
+#    DRONE_META_KEY:
+#      from_secret: DRONE_META_KEY
+#    DRONE_PORTAINER_USER:
+#      from_secret: DRONE_PORTAINER_USER
+#    DRONE_PORTAINER_PASS:
+#      from_secret: DRONE_PORTAINER_PASS
+#    DRONE_CI:
+#      from_secret: DRONE_CI
+#  settings:
+#    repo: registry.hemma.lokal/images/gbsfm-web
+#    tags: latest
+#    registry: registry.hemma.lokal
+#    dockerfile: Dockerfile.gbsfm-web
+#    build_args_from_env:
+#      - DRONE_DATABASE_HOST
+#      - DRONE_DATABASE_PASSWORD
+#      - DRONE_DATABASE_USERNAME
+#      - DRONE_NEXT_PASSWORD
+#      - DRONE_SA_PASSWORD
+#      - DRONE_SA_USERNAME
+#      - DRONE_SECRET_KEY
+#      - DRONE_LISTENERS
+#      - DRONE_TELNETHOST
+#      - DRONE_META_USER
+#      - DRONE_META_KEY
+#      - DRONE_PORTAINER_USER
+#      - DRONE_PORTAINER_PASS
+#      - DRONE_CI
 - name: Build and push docker image for GBS.fm Web - Python3
   image: plugins/docker
   environment:
@@ -109,36 +109,36 @@ steps:
       - DRONE_PORTAINER_USER
       - DRONE_PORTAINER_PASS
       - DRONE_CI
-- name: Build and push docker image for GBS.fm FTP
-  image: plugins/docker
-  environment:
-    DRONE_DATABASE_HOST:
-      from_secret: DRONE_DATABASE_HOST
-    DRONE_DATABASE_PASSWORD:
-      from_secret: DRONE_DATABASE_PASSWORD
-    DRONE_DATABASE_USERNAME:
-      from_secret: DRONE_DATABASE_USERNAME
-    DRONE_NEXT_PASSWORD:
-      from_secret: DRONE_NEXT_PASSWORD
-    DRONE_SA_PASSWORD:
-      from_secret: DRONE_SA_PASSWORD
-    DRONE_SA_USERNAME:
-      from_secret: DRONE_SA_USERNAME
-    DRONE_SECRET_KEY:
-      from_secret: DRONE_SECRET_KEY
-  settings:
-    repo: registry.hemma.lokal/images/gbsfm-ftp
-    tags: latest
-    registry: registry.hemma.lokal
-    dockerfile: Dockerfile.gbsfm-ftp
-    build_args_from_env:
-      - DRONE_DATABASE_HOST
-      - DRONE_DATABASE_PASSWORD
-      - DRONE_DATABASE_USERNAME
-      - DRONE_NEXT_PASSWORD
-      - DRONE_SA_PASSWORD
-      - DRONE_SA_USERNAME
-      - DRONE_SECRET_KEY
+#- name: Build and push docker image for GBS.fm FTP
+#  image: plugins/docker
+#  environment:
+#    DRONE_DATABASE_HOST:
+#      from_secret: DRONE_DATABASE_HOST
+#    DRONE_DATABASE_PASSWORD:
+#      from_secret: DRONE_DATABASE_PASSWORD
+#    DRONE_DATABASE_USERNAME:
+#      from_secret: DRONE_DATABASE_USERNAME
+#    DRONE_NEXT_PASSWORD:
+#      from_secret: DRONE_NEXT_PASSWORD
+#    DRONE_SA_PASSWORD:
+#      from_secret: DRONE_SA_PASSWORD
+#    DRONE_SA_USERNAME:
+#      from_secret: DRONE_SA_USERNAME
+#    DRONE_SECRET_KEY:
+#      from_secret: DRONE_SECRET_KEY
+#  settings:
+#    repo: registry.hemma.lokal/images/gbsfm-ftp
+#    tags: latest
+#    registry: registry.hemma.lokal
+#    dockerfile: Dockerfile.gbsfm-ftp
+#    build_args_from_env:
+#      - DRONE_DATABASE_HOST
+#      - DRONE_DATABASE_PASSWORD
+#      - DRONE_DATABASE_USERNAME
+#      - DRONE_NEXT_PASSWORD
+#      - DRONE_SA_PASSWORD
+#      - DRONE_SA_USERNAME
+#      - DRONE_SECRET_KEY
 #- name: Build and push docker image for GBS.fm IRC Bot
 #  image: plugins/docker
 #  environment:
