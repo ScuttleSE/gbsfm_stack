@@ -24,14 +24,14 @@ RUN mkdir /srv/pydj && \
     apt-get update && \
     apt-get -y install nano telnet psmisc jq && \
     git clone https://github.com/ScuttleSE/gbsfm_web.git /srv/pydj
-#    cd /srv/pydj && \
-#    cp image/web/requirements.txt . && \
-#    git checkout python3 && \
-#    pip install --upgrade pip && \
-#    pip install virtualenv && \
-#    virtualenv ./ && \
-#    . /srv/pydj/bin/activate && \
-#    pip install -r requirements.txt
+    cd /srv/pydj && \
+    git checkout python3 && \
+    cp image/web/requirements.txt . && \
+    pip install --upgrade pip && \
+    pip install virtualenv && \
+    virtualenv ./ && \
+    . /srv/pydj/bin/activate && \
+    pip install -r requirements.txt
 #pip install django-markdown-deux
 #    pip install -r requirements.txt
 
