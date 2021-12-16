@@ -27,14 +27,11 @@ RUN mkdir /srv/pydj && \
     git clone https://github.com/ScuttleSE/gbsfm_web.git /srv/pydj && \
     cd /srv/pydj && \
     git checkout python3 && \
-    cp image/web/requirements.txt . && \
     pip install --upgrade pip && \
     pip install virtualenv && \
     virtualenv ./ && \
     . /srv/pydj/bin/activate && \
     pip install -r requirements.txt
-#pip install django-markdown-deux
-#    pip install -r requirements.txt
 
 COPY replacepasswords3.sh /root/replacepasswords.sh
 COPY scripts/entrypoint.sh /home/gbsfm/entrypoint.sh
