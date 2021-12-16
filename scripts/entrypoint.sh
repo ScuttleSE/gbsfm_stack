@@ -11,7 +11,7 @@ nohup /home/gbsfm/remaining.py >/dev/null 2>&1&
 
 cd /srv/pydj
 source bin/activate
-pip install validators
+pip install validators pymysql
 python manage.py collectstatic --noinput
 uwsgi --ini server_config/pydj_uwsgi.ini
 tail -f /srv/logs/uwsgi.log
