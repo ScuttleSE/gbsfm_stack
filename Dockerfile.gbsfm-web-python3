@@ -23,13 +23,13 @@ RUN mkdir /srv/pydj && \
     touch /home/gbsfm/listeners.txt && \
     apt-get update && \
     apt-get -y install nano telnet psmisc jq && \
-    pip install virtualenv pymysql && \
+    pip install virtualenv && \
     git clone https://github.com/ScuttleSE/gbsfm_web.git /srv/pydj && \
     cd /srv/pydj && \
     git checkout python3 && \
     cp image/web/requirements.txt . && \
     pip install --upgrade pip && \
-    pip install virtualenv pymysql && \
+    pip install virtualenv && \
     virtualenv ./ && \
     . /srv/pydj/bin/activate && \
     pip install -r requirements.txt
