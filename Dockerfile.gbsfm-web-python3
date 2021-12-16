@@ -28,17 +28,18 @@ RUN mkdir /srv/pydj && \
     git checkout python3 && \
     cp image/web/requirements.txt . && \
     pip install --upgrade pip && \
-    pip install virtualenv validators && \
+    pip install virtualenv validators pymysql && \
     virtualenv ./ && \
     . /srv/pydj/bin/activate && \
-    pip install -r requirements.txt
+    pip install -r requirements.txt && \
+    python manage.py collectstatic --noinput
 #pip install django-markdown-deux
 #    pip install -r requirements.txt
 
 COPY replacepasswords3.sh /root/replacepasswords.sh
 COPY scripts/entrypoint.sh /home/gbsfm/entrypoint.sh
 COPY scripts/listeners.sh /home/gbsfm/listeners.sh
-COPY scripts/remaining.py /home/gbsfm/remaining.py
+COPY scripts/remaining3.py /home/gbsfm/remaining.py
 COPY scripts/restartstuff.sh /home/gbsfm/restartstuff.sh
 COPY scripts/restartjobs.sh /home/gbsfm/restartjobs.sh
 COPY scripts/skipsong.sh /home/gbsfm/skipsong.sh
