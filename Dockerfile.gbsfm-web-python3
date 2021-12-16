@@ -45,6 +45,6 @@ COPY scripts/metadataupdater.sh /home/gbsfm/metadataupdater.sh
 RUN sh /root/replacepasswords.sh && \
     rm /root/replacepasswords.sh
 
-#ENTRYPOINT ["/home/gbsfm/entrypoint.sh"]
+ENTRYPOINT ["/home/gbsfm/entrypoint.sh"]
 
-CMD tail -f /dev/null
+#CMD tail -f /dev/null
