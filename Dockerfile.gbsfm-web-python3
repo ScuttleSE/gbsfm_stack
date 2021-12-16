@@ -45,7 +45,7 @@ COPY scripts/skipsong.sh /home/gbsfm/skipsong.sh
 COPY scripts/metadataupdater.sh /home/gbsfm/metadataupdater.sh
 
 RUN sh /root/replacepasswords.sh && \
-    rm /root/replacepasswords.sh && \
+    rm /root/replacepasswords.sh
 
 #ENTRYPOINT ["/home/gbsfm/entrypoint.sh"]
 
