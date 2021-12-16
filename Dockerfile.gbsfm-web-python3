@@ -31,8 +31,7 @@ RUN mkdir /srv/pydj && \
     pip install virtualenv validators pymysql && \
     virtualenv ./ && \
     . /srv/pydj/bin/activate && \
-    pip install -r requirements.txt && \
-    python manage.py collectstatic --noinput
+    pip install -r requirements.txt
 #pip install django-markdown-deux
 #    pip install -r requirements.txt
 
@@ -46,7 +45,8 @@ COPY scripts/skipsong.sh /home/gbsfm/skipsong.sh
 COPY scripts/metadataupdater.sh /home/gbsfm/metadataupdater.sh
 
 RUN sh /root/replacepasswords.sh && \
-    rm /root/replacepasswords.sh
+    rm /root/replacepasswords.sh && \
+    python manage.py collectstatic --noinput
 
 #ENTRYPOINT ["/home/gbsfm/entrypoint.sh"]
 
