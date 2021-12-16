@@ -46,6 +46,9 @@ COPY scripts/metadataupdater.sh /home/gbsfm/metadataupdater.sh
 
 RUN sh /root/replacepasswords.sh && \
     rm /root/replacepasswords.sh && \
+    echo "Collecting static files" && \
+    cd /srv/pydj && \
+    . /srv/pydj/bin/activate && \
     python manage.py collectstatic --noinput
 
 #ENTRYPOINT ["/home/gbsfm/entrypoint.sh"]
