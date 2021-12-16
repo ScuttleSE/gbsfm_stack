@@ -28,7 +28,7 @@ RUN mkdir /srv/pydj && \
     git checkout python3 && \
     cp image/web/requirements.txt . && \
     pip install --upgrade pip && \
-    pip install virtualenv && \
+    pip install virtualenv validators && \
     virtualenv ./ && \
     . /srv/pydj/bin/activate && \
     pip install -r requirements.txt
