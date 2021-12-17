@@ -27,7 +27,7 @@ RUN mkdir /srv/pydj && \
     pip install -r requirements.txt
 
 COPY scripts/ftp-entrypoint.sh /home/gbsfm/ftp-entrypoint.sh
-COPY replacepasswords3.sh /root/replacepasswords.sh
+COPY replacepasswords-ftp.sh /root/replacepasswords.sh
 
 RUN sh /root/replacepasswords.sh && \
     rm /root/replacepasswords.sh
