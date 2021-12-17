@@ -4,6 +4,8 @@ Fastest way to get up and running is to cline this repo and build a docker image
 
 * Clone the repo and use docker build:
 
+Yes, there is a bunch of variavbles set here. Only the first three are really important, the rest can be set to whatever if it's just the web UI you want to get up and running.
+
 docker build -t gbsfm/web --rm=true -f Dockerfile.gbsfm-web-python3 . --pull=true --build-arg DRONE_DATABASE_HOST=1.1.1.1 \
 --build-arg DRONE_DATABASE_PASSWORD=db-passwd \
 --build-arg DRONE_DATABASE_USERNAME=dbuser \
