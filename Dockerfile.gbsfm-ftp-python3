@@ -32,6 +32,6 @@ COPY replacepasswords-ftp.sh /root/replacepasswords.sh
 RUN sh /root/replacepasswords.sh && \
     rm /root/replacepasswords.sh
 
-#ENTRYPOINT ["/home/gbsfm/ftp-entrypoint.sh"]
+ENTRYPOINT ["/home/gbsfm/ftp-entrypoint.sh"]
 
-CMD tail -f /dev/null
+#CMD tail -f /dev/null
