@@ -1,10 +1,10 @@
 This is a repo for the docker-images used in the GBSfm-stack. They have other dependencies, so just trying to build these images won't work unless you know what you are doing.
 
-Fastest way to get up and running is to cline this repo and build a docker image with the web UI
+Fastest way to get up and running is to clone this repo and build a docker image with the web UI
 
 * Clone the repo and use docker build:
 
-Yes, there is a bunch of variavbles set here. Only the first three are really important, the rest can be set to whatever if it's just the web UI you want to get up and running.
+Yes, there is a bunch of variables set here. Only the first three are really important, the rest can be set to whatever if it's just the web UI you want to get up and running.
 
 docker build -t gbsfm/web --rm=true -f Dockerfile.gbsfm-web-python3 . --pull=true --build-arg DRONE_DATABASE_HOST=1.1.1.1 \
 --build-arg DRONE_DATABASE_PASSWORD=db-passwd \
