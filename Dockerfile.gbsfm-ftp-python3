@@ -1,0 +1,37 @@
+from python:latest
+
+ARG DRONE_DATABASE_HOST
+ARG DRONE_DATABASE_PASSWORD
+ARG DRONE_DATABASE_USERNAME
+ARG DRONE_NEXT_PASSWORD
+ARG DRONE_SA_PASSWORD
+ARG DRONE_SA_USERNAME
+ARG DRONE_SECRET_KEY
+
+RUN mkdir /srv/pydj && \
+    mkdir /srv/ftpdir && \
+    mkdir /srv/logs && \
+    mkdir /remaining && \
+    mkdir /home/gbsfm && \
+    touch /home/gbsfm/listeners.txt && \
+    apt-get update && \
+    apt-get -y install nano telnet psmisc jq && \
+    pip install virtualenv && \
+    git clone https://github.com/ScuttleSE/gbsfm_web.git /srv/pydj && \
+    cd /srv/pydj && \
+    git checkout python3 && \
+    pip install --upgrade pip && \
+    pip install virtualenv && \
+    virtualenv ./ && \
+    . /srv/pydj/bin/activate && \
+    pip install -r requirements.txt
+
+COPY scripts/ftp-entrypoint.sh /home/gbsfm/ftp-entrypoint.sh
+COPY replacepasswords3.sh /root/replacepasswords.sh
+
+RUN sh /root/replacepasswords.sh && \
+    rm /root/replacepasswords.sh
+
+#ENTRYPOINT ["/home/gbsfm/ftp-entrypoint.sh"]
+
+CMD tail -f /dev/null
