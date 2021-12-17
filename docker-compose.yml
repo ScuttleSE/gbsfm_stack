@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+  gbsfm:
+    build:
+      context: .
+      dockerfile: Dockerfile.gbsfm-web
+      args:
+        DRONE_DATABASE_HOST: 1.1.1.1
+        DRONE_DATABASE_PASSWORD: db-passwd
+        DRONE_DATABASE_USERNAME: dbuser
+        DRONE_NEXT_PASSWORD: nextpw
+        DRONE_SA_PASSWORD: somethingawful-pw
+        DRONE_SA_USERNAME: somethingawfule-user
+        DRONE_SECRET_KEY: x
+        DRONE_LISTENERS: x
+        DRONE_TELNETHOST: 1.1.1.1
+        DRONE_META_USER: x
+        DRONE_META_KEY: x
+        DRONE_PORTAINER_USER: x
+        DRONE_PORTAINER_PASS: x
+        DRONE_CI: x
+      
