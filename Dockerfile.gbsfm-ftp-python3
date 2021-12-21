@@ -15,12 +15,7 @@ RUN mkdir /srv/pydj && \
     mkdir /home/gbsfm && \
     touch /home/gbsfm/listeners.txt && \
     apt-get update && \
-    apt-get -y install nano telnet psmisc jq && \
-    cd /tmp && \
-    wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz && \
-    tar xfv ffmpeg-release-amd64-static.tar.xz --strip-components 1 --wildcards */ffprobe && \
-    rm ffmpeg-release-amd64-static.tar.xz && \
-    mv ffprobe /usr/bin/ && \
+    apt-get -y install nano telnet psmisc jq ffmpeg libopenmpt0 && \
     pip install virtualenv && \
     git clone https://github.com/ScuttleSE/gbsfm_web.git /srv/pydj && \
     cd /srv/pydj && \
