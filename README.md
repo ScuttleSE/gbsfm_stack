@@ -26,3 +26,5 @@ docker build -t gbsfm/web --rm=true -f Dockerfile.gbsfm-web-python3 . --pull=tru
 docker run -it -p 9000:9000 gbsfm/web:latest
 
 This'll start up the web UI on port 9000
+
+Yay
