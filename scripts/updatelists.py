@@ -1,6 +1,7 @@
 #!/srv/pydj/bin/python
 import pymysql.cursors
 import schedule
+import time
 
 connection = pymysql.connect(host='', user='', password='', db='gbsfm', charset='utf8', cursorclass=pymysql.cursors.DictCursor, autocommit=True)
 
