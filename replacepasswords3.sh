@@ -24,3 +24,12 @@ sed -i "s/USERNAME=xxx/USERNAME=$DRONE_PORTAINER_USER/g" /home/gbsfm/restartstuf
 sed -i "s/PASSWORD=yyy/PASSWORD=$DRONE_PORTAINER_PASS/g" /home/gbsfm/restartstuff.sh
 
 sed -i "s/AUTHKEY=DRONE_JOBKEY/AUTHKEY=$DRONE_CI/g" /home/gbsfm/restartjobs.sh
+
+sed -i "s/(host=''/(host='$DRONE_DATABASE_HOST'/g" /home/gbsfm/playjingle.py
+sed -i "s/user=''/user='$DRONE_DATABASE_USERNAME'/g" /home/gbsfm/playjingle.py
+sed -i "s/password=''/password='$DRONE_DATABASE_PASSWORD'/g" /home/gbsfm/playjingle.py
+sed -i "s/telnethost = ''/telnethost='$DRONE_TELNETHOST'/g" /home/gbsfm/playjingle.py
+
+sed -i "s/(host=''/(host='$DRONE_DATABASE_HOST'/g" /home/gbsfm/updatelists.py
+sed -i "s/user=''/user='$DRONE_DATABASE_USERNAME'/g" /home/gbsfm/updatelists.py
+sed -i "s/password=''/password='$DRONE_DATABASE_PASSWORD'/g" /home/gbsfm/updatelists.py

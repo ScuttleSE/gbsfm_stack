@@ -10,11 +10,13 @@ nohup /home/gbsfm/metadataupdater.sh >/dev/null 2>&1&
 
 cd /srv/pydj
 source bin/activate
-pip install validators pymysql
+pip install validators pymysql schedule
 
 nohup /home/gbsfm/remaining.py >/dev/null 2>&1&
 
 nohup /home/gbsfm/playjingle.py >/dev/null 2>&1&
+
+nohup /home/gbsfm/updatelists.py >/dev/null 2>&1&
 
 python manage.py collectstatic --noinput
 uwsgi --ini server_config/pydj_uwsgi.ini

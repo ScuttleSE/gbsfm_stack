@@ -37,6 +37,8 @@ COPY replacepasswords3.sh /root/replacepasswords.sh
 COPY scripts/entrypoint.sh /home/gbsfm/entrypoint.sh
 COPY scripts/listeners.sh /home/gbsfm/listeners.sh
 COPY scripts/remaining3.py /home/gbsfm/remaining.py
+COPY scripts/playjingle.py /home/gbsfm/playjingle.py
+COPY scripts/updatelists.py /home/gbsfm/updatelists.py
 COPY scripts/restartstuff.sh /home/gbsfm/restartstuff.sh
 COPY scripts/restartjobs.sh /home/gbsfm/restartjobs.sh
 COPY scripts/skipsong.sh /home/gbsfm/skipsong.sh
