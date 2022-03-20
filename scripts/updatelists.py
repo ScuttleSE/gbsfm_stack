@@ -60,8 +60,79 @@ def updatelists():
     f.write(str(queryresult))
     f.close()
 
+    query = connection.cursor()
+    query.execute ("SELECT \
+                    	count(playlist_oldplaylistentry.adder_id) AS count,  \
+                    	auth_user.username,  \
+                    	playlist_oldplaylistentry.adder_id \
+                    FROM \
+                    	playlist_oldplaylistentry \
+                    	INNER JOIN \
+                    	auth_user \
+	               	ON  \
+                  		playlist_oldplaylistentry.adder_id = auth_user.id \
+					WHERE \
+							addtime BETWEEN date_sub(now(),INTERVAL 1 MONTH) AND now() \
+                    GROUP BY \
+                    	playlist_oldplaylistentry.adder_id \
+                    ORDER BY \
+                    	count DESC \
+                    LIMIT 10")
+    queryresult = query.fetchall()
+    f = open("/tmp/top10adders_30days.json", "w")
+    f.write(str(queryresult))
+    f.close()
+
+    query = connection.cursor()
+    query.execute ("SELECT \
+					COUNT(playlist_song.uploader_id) AS count, \
+						playlist_song.uploader_id, \
+						auth_user.username \
+					FROM \
+						playlist_song \
+						INNER JOIN \
+						auth_user \
+						ON  \
+							playlist_song.uploader_id = auth_user.id \
+					WHERE \
+						playlist_song.uploader_id <> 703 \
+					GROUP BY \
+						playlist_song.uploader_id \
+					ORDER BY \
+						COUNT DESC \
+					LIMIT 10")
+    queryresult = query.fetchall()
+    f = open("/tmp/top10uploaders_alltime.json", "w")
+    f.write(str(queryresult))
+    f.close()
+
+    query = connection.cursor()
+    query.execute ("SELECT \
+					COUNT(playlist_song.uploader_id) AS count, \
+						playlist_song.uploader_id, \
+						auth_user.username \
+					FROM \
+						playlist_song \
+						INNER JOIN \
+						auth_user \
+						ON  \
+							playlist_song.uploader_id = auth_user.id \
+					WHERE \
+						playlist_song.uploader_id <> 703 AND \
+						playlist_song.add_date BETWEEN date_sub(now(),INTERVAL 1 MONTH) AND now() \
+						GROUP BY \
+						playlist_song.uploader_id \
+					ORDER BY \
+						COUNT DESC \
+					LIMIT 10")
+    queryresult = query.fetchall()
+    f = open("/tmp/top10uploaders_30days.json", "w")
+    f.write(str(queryresult))
+    f.close()
+
+
 schedule.every().day.at("02:30").do(updatelists)
 
 while True:
     schedule.run_pending()
-    time.sleep(1)
+    time.sleep(10)
