@@ -75,6 +75,8 @@ steps:
       from_secret: DRONE_SA_USERNAME
     DRONE_SECRET_KEY:
       from_secret: DRONE_SECRET_KEY
+    DRONE_CI:
+      from_secret: DRONE_CI
   settings:
     repo: registry.hemma.lokal/images/gbsfm-ftp-python3
     tags: latest
