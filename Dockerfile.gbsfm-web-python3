@@ -1,4 +1,5 @@
-from python:latest
+#pinning to 3.10 for now
+from python:3.10
 
 ARG DRONE_DATABASE_HOST
 ARG DRONE_DATABASE_PASSWORD
